@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "perso:vibranium_dust"
+  },
+  "result": "perso:vibranium_ingot",
+  "experience": 0.2,
+  "cookingtime": 200
+}

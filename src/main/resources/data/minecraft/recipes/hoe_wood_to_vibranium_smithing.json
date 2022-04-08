@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smithing",
+  "base": {
+    "item": "minecraft:wooden_hoe"
+  },
+  "addition": {
+    "item": "perso:vibranium_ingot"
+  },
+  "result": {
+    "item": "perso:vibranium_hoe"
+  }
+}

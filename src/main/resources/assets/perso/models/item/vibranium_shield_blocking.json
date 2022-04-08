@@ -1,0 +1,7 @@
+{
+  "parent": "fabricshieldlib:item/fabric_shield_blocking",
+  "textures": {
+    "shield": "perso:item/vibranium_shield_base_nopattern"
+  }
+
+}

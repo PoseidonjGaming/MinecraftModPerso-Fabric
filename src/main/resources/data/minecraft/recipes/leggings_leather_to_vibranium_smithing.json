@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smithing",
+  "base": {
+    "item": "minecraft:leather_leggings"
+  },
+  "addition": {
+    "item": "perso:vibranium_ingot"
+  },
+  "result": {
+    "item": "perso:vibranium_leggings"
+  }
+}

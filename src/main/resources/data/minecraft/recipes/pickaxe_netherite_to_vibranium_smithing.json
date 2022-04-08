@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smithing",
+  "base": {
+    "item": "minecraft:netherite_pickaxe"
+  },
+  "addition": {
+    "item": "perso:vibranium_ingot"
+  },
+  "result": {
+    "item": "perso:vibranium_pickaxe"
+  }
+}

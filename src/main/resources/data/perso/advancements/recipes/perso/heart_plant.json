@@ -1,0 +1,43 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "perso:heart_plant"
+    ]
+  },
+  "criteria": {
+    "unlock_stick": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "perso:vibranium_stick"
+          }
+        ]
+      }
+    },
+    "unlock_berries": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "minecraft:sweet_berries"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "perso:heart_plant"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "unlock_stick",
+      "unlock_berries",
+      "has_the_recipe"
+    ]
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "parent": "fabricshieldlib:item/fabric_shield",
+   "textures":{
+    "shield":"perso:item/vibranium_shield_base_nopattern"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "blocking": 1
+      },
+      "model": "perso:item/vibranium_shield_blocking"
+    }
+  ]
+}

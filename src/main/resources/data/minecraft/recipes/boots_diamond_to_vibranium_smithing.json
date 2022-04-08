@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smithing",
+  "base": {
+    "item": "minecraft:diamond_boots"
+  },
+  "addition": {
+    "item": "perso:vibranium_ingot"
+  },
+  "result": {
+    "item": "perso:vibranium_boots"
+  }
+}
