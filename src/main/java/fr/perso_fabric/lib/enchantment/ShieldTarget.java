@@ -2,7 +2,6 @@ package fr.perso_fabric.lib.enchantment;
 
 import fr.perso_fabric.lib.object.FabricShield;
 import fr.perso_fabric.mixin.EnchantmentTargetMixin;
-
 import net.minecraft.item.Item;
 import net.minecraft.item.Items;
 

@@ -1,7 +1,6 @@
 package fr.perso_fabric.lib.object;
 
 import fr.perso_fabric.initializers.FabricShieldLib;
-
 import net.minecraft.inventory.CraftingInventory;
 import net.minecraft.item.BannerItem;
 import net.minecraft.item.ItemStack;

@@ -20,6 +20,9 @@
   "entrypoints": {
     "main": [
       "fr.perso_fabric.Perso"
+    ],
+    "client":[
+        "fr.perso_fabric.PersoClient"
     ]
   },
   "mixins": [

@@ -1,7 +1,6 @@
 package fr.perso_fabric.lib.enchantment;
 
 import com.chocohead.mm.api.ClassTinkerers;
-
 import net.minecraft.enchantment.EnchantmentTarget;
 
 /**

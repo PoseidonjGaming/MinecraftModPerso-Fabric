@@ -1,12 +1,8 @@
 package fr.perso_fabric.initializers;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import com.mojang.datafixers.util.Pair;
 import fr.perso_fabric.lib.object.FabricBannerShieldItem;
 import fr.perso_fabric.lib.object.FabricShield;
-import com.mojang.datafixers.util.Pair;
-
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.item.v1.ItemTooltipCallback;
 import net.fabricmc.fabric.api.client.rendereregistry.v1.EntityModelLayerRegistry;
@@ -32,6 +28,9 @@ import net.minecraft.text.TranslatableText;
 import net.minecraft.util.DyeColor;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Identifier;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @SuppressWarnings("deprecation")
 public class FabricShieldLibClient implements ClientModInitializer {

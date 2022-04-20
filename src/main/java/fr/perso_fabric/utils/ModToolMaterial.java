@@ -1,7 +1,7 @@
 package fr.perso_fabric.utils;
 
 import fr.perso_fabric.init.ModItems;
-import net.fabricmc.yarn.constants.MiningLevels;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.recipe.Ingredient;
@@ -12,7 +12,7 @@ import java.util.function.Supplier;
 public enum ModToolMaterial implements ToolMaterial {
 
     Vibranium(5, 4060, 20F, 4.0F, 20, () -> {
-        return Ingredient.ofItems(new ItemConvertible[]{ModItems.vibranium_ingot});
+        return Ingredient.ofItems(new ItemConvertible[]{(Item) ModItems.itemList.get(0).get(1)});
     });
 
     private final int miningLevel;

@@ -3,6 +3,7 @@ package fr.perso_fabric.utils;
 import fr.perso_fabric.init.ModItems;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.ArmorMaterial;
+import net.minecraft.item.Item;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
@@ -10,9 +11,9 @@ import net.minecraft.util.Lazy;
 
 import java.util.function.Supplier;
 
-public enum ModArmorMaterial implements ArmorMaterial {
+public enum ModCustomArmorMaterial implements ArmorMaterial {
 
-    VIBRANIUM("vibranium",45,new int[]{9,12,14,9},30, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC,0.0f,2.0f,()->Ingredient.ofItems(ModItems.vibranium_ingot));
+    VIBRANIUM("vibranium",45,new int[]{9,12,14,9},30, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC,0.0f,2.0f,()->Ingredient.ofItems((Item) ModItems.itemList.get(0).get(1)));
 
 
     public static final int[] BASE_DURABILITY= new int[]{13, 15, 16, 11};
@@ -26,7 +27,7 @@ public enum ModArmorMaterial implements ArmorMaterial {
     private final float knockbackResistance;
     private final Lazy<Ingredient> repairIngredientSupplier;
 
-    private ModArmorMaterial(String name, int durabilityMultiplier, int[] protectionAmounts, int enchantability, SoundEvent equipSound, float toughness, float knockbackResistance, Supplier<Ingredient> repairIngredientSupplier) {
+    private ModCustomArmorMaterial(String name, int durabilityMultiplier, int[] protectionAmounts, int enchantability, SoundEvent equipSound, float toughness, float knockbackResistance, Supplier<Ingredient> repairIngredientSupplier) {
         this.name = name;
         this.durabilityMultiplier = durabilityMultiplier;
         this.protectionAmounts = protectionAmounts;

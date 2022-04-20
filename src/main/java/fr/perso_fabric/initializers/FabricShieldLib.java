@@ -7,10 +7,6 @@ import fr.perso_fabric.lib.object.FabricBannerShieldItem;
 import fr.perso_fabric.lib.object.FabricShieldDecoratorRecipe;
 import fr.perso_fabric.lib.object.FabricShieldEnchantment;
 import fr.perso_fabric.lib.object.FabricShieldItem;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import me.shedaniel.autoconfig.AutoConfig;
 import me.shedaniel.autoconfig.serializer.GsonConfigSerializer;
 import net.fabricmc.api.ModInitializer;
@@ -29,6 +25,8 @@ import net.minecraft.recipe.SpecialRecipeSerializer;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Main class for Fabric Shield Lib

@@ -1,7 +1,6 @@
 package fr.perso_fabric.initializers;
 
 import com.chocohead.mm.api.ClassTinkerers;
-
 import net.fabricmc.loader.api.FabricLoader;
 
 public class FabricShieldLibEarlyRiser implements Runnable {
