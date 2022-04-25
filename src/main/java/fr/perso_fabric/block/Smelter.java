@@ -1,10 +1,16 @@
 package fr.perso_fabric.block;
 
+import fr.perso_fabric.block.block_entity.SmelterEntity;
 import fr.perso_fabric.block.block_entity.VibraniumChestBlockEntity;
+import fr.perso_fabric.init.ModBlockEntity;
 import net.minecraft.block.BlockEntityProvider;
+import net.minecraft.block.BlockRenderType;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.BlockWithEntity;
 import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.block.entity.BlockEntityTicker;
+import net.minecraft.block.entity.BlockEntityType;
+import net.minecraft.client.MinecraftClient;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.screen.NamedScreenHandlerFactory;
@@ -22,10 +28,15 @@ public class Smelter extends BlockWithEntity implements BlockEntityProvider {
         super(settings);
     }
 
+    @Override
+    public BlockRenderType getRenderType(BlockState state) {
+        return BlockRenderType.MODEL;
+    }
+
     @Nullable
     @Override
     public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
-        return null;
+        return new SmelterEntity(pos, state);
     }
 
     @Override
@@ -34,9 +45,9 @@ public class Smelter extends BlockWithEntity implements BlockEntityProvider {
             NamedScreenHandlerFactory screenHandlerFactory=state.createScreenHandlerFactory(world,pos);
             if (screenHandlerFactory!=null){
                 player.openHandledScreen(screenHandlerFactory);
-
             }
         }
+
         return ActionResult.SUCCESS;
     }
 
@@ -61,4 +72,11 @@ public class Smelter extends BlockWithEntity implements BlockEntityProvider {
     public int getComparatorOutput(BlockState state, World world, BlockPos pos) {
         return ScreenHandler.calculateComparatorOutput(world.getBlockEntity(pos));
     }
+
+    @Nullable
+    @Override
+    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
+        return checkType(type, ModBlockEntity.smelter_blockEntity, SmelterEntity::tick);
+    }
+
 }

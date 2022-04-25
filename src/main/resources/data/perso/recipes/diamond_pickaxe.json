@@ -1,0 +1,14 @@
+{
+ "type": "perso:smelter",
+  "ingredients": [
+    {
+      "item": "minecraft:iron_pickaxe"
+    },
+    {
+      "item": "minecraft:diamond"
+    }
+  ],
+  "output": {
+    "item": "minecraft:diamond_pickaxe"
+  }
+}

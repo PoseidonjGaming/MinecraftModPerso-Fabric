@@ -1,29 +1,26 @@
 package fr.perso_fabric.screen;
 
 import fr.perso_fabric.init.ModScreen;
-import fr.perso_fabric.inventory.ModSlot;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.inventory.SimpleInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.screen.ScreenHandler;
-import net.minecraft.screen.ScreenHandlerType;
 import net.minecraft.screen.slot.Slot;
-import org.jetbrains.annotations.Nullable;
 
-public class VibraniumScreenHandler extends ScreenHandler {
+public class VibraniumChestScreenHandler extends ScreenHandler {
 
     private final Inventory inventory;
 
-    public VibraniumScreenHandler(int syncId, PlayerInventory playerInventory) {
+    public VibraniumChestScreenHandler(int syncId, PlayerInventory playerInventory) {
         this(syncId, playerInventory, new SimpleInventory(96));
     }
-    public VibraniumScreenHandler(int syncId,PlayerInventory playerInventory,Inventory inventory) {
+    public VibraniumChestScreenHandler(int syncId, PlayerInventory playerInventory, Inventory inventory) {
         super(ModScreen.vibranium_chest_screen_handler, syncId);
         checkSize(inventory,96);
         this.inventory=inventory;
-        //inventory.onOpen(playerInventory.player);
+        inventory.onOpen(playerInventory.player);
 
         //this.addSlot(new Slot(inventory,0,8,18));
         int index=0;

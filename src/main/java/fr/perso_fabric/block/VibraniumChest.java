@@ -34,7 +34,7 @@ public class VibraniumChest extends BlockWithEntity implements BlockEntityProvid
 
     @Override
     public BlockRenderType getRenderType(BlockState state) {
-        return BlockRenderType.ENTITYBLOCK_ANIMATED;
+        return BlockRenderType.MODEL;
     }
 
     @Nullable
