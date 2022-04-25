@@ -1,0 +1,7 @@
+{
+    "parent": "perso:block/chest_custom",
+    "textures": {
+        "0": "perso:entity/chest/vibranium_chest",
+        "particle": "perso:block/vibranium_break"
+    }
+}

@@ -1,4 +1,4 @@
-package fr.perso_fabric.block_entity;
+package fr.perso_fabric.block.block_entity;
 
 import fr.perso_fabric.block.ImplementedInventory;
 import fr.perso_fabric.init.ModBlockEntity;
@@ -8,6 +8,7 @@ import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventories;
+import net.minecraft.inventory.Inventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.network.Packet;
@@ -66,7 +67,7 @@ public class VibraniumChestBlockEntity extends BlockEntity implements Implemente
     @Nullable
     @Override
     public ScreenHandler createMenu(int syncId, PlayerInventory inv, PlayerEntity player) {
-        return new VibraniumScreenHandler(syncId,inv, this);
+        return new VibraniumScreenHandler(syncId,inv, (Inventory) this);
     }
 
     /*public static void tick(World world, BlockPos pos, BlockState state, VibraniumChestBlockEntity entity){

@@ -1,5 +1,6 @@
 package fr.perso_fabric.init;
 
+import fr.perso_fabric.block.VibraniumChest;
 import fr.perso_fabric.block.block_entity.VibraniumChestBlockEntity;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
 import net.minecraft.block.Block;

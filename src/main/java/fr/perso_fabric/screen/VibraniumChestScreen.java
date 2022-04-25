@@ -11,38 +11,40 @@ import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
 public class VibraniumChestScreen extends HandledScreen<VibraniumScreenHandler> {
-    private static final Identifier TEXTURE =
-            new Identifier(Perso.ModId, "textures/gui/vibranium_chest_gui.png");
+
+    private static final Identifier texture= new Identifier(Perso.ModId,"textures/gui/vibranium_chest_gui.png");
+
+    @Override
+    protected void init() {
+        super.init();
+        this.x = (width - 237) / 2;
+        this.y = 0;
+        this.playerInventoryTitleY=163;
+        this.playerInventoryTitleX=35;
+        this.backgroundHeight=256;
+        this.backgroundWidth=237;
+
+
+    }
+
     public VibraniumChestScreen(VibraniumScreenHandler handler, PlayerInventory inventory, Text title) {
         super(handler, inventory, title);
     }
 
     @Override
-    protected void drawBackground(MatrixStack matrices, float delta, int mouseX, int mouseY) {
-        RenderSystem.setShader(GameRenderer::getPositionTexShader);
-        RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
-        RenderSystem.setShaderTexture(0, TEXTURE);
-        int x = (width - backgroundWidth) / 2;
-        int y = (height - backgroundHeight) / 2;
-        drawTexture(matrices, x, y, 0, 0, backgroundWidth, backgroundHeight);
-
-        /*if(handler.isLightningStorm()) {
-            this.drawTexture(matrices, x + 26, y + 31, 176, 0, 28, 36);
-        }*/
-    }
-    @Override
-    protected void init() {
-        super.init();
-        // Center the title
-        titleX = (backgroundWidth - textRenderer.getWidth(title)) / 2;
-    }
-
-
-    @Override
     public void render(MatrixStack matrices, int mouseX, int mouseY, float delta) {
         renderBackground(matrices);
         super.render(matrices, mouseX, mouseY, delta);
-        drawMouseoverTooltip(matrices, mouseX, mouseY);
+        drawMouseoverTooltip(matrices,mouseX,mouseY);
     }
 
+    @Override
+    protected void drawBackground(MatrixStack matrices, float delta, int mouseX, int mouseY) {
+        RenderSystem.setShader(GameRenderer::getPositionTexShader);
+        RenderSystem.setShaderColor(1.0F,1.0F,1.0F,1.0F);
+        RenderSystem.setShaderTexture(0,texture);
+        int xMod=(width-237)/2;
+
+        drawTexture(matrices,xMod,0,0,0,236,256);
+    }
 }
