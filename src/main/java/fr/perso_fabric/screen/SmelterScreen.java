@@ -10,7 +10,7 @@ import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
 public class SmelterScreen extends HandledScreen<SmelterScreenHandler> {
-    private static final Identifier texture=new Identifier(Perso.ModId,"textures/gui/smelter_gui.png");
+    private static final Identifier texture=new Identifier(Perso.ModId,"textures/gui/smelter_gui_2.png");
     @Override
     protected void init() {
         super.init();
@@ -39,6 +39,7 @@ public class SmelterScreen extends HandledScreen<SmelterScreenHandler> {
         if(handler.isCrafting()) {
             drawTexture(matrices, x + 77, y + 26, 176, 14, 36, handler.getScaledProgress());
         }
+        //drawTexture(matrices, x + 99, y + 26, 176, 14, 22, 34);
 
         if(handler.hasFuel()) {
             drawTexture(matrices, x + 55, (y + 28) + (14 - handler.getScaledFuelProgress()), 176,14 - handler.getScaledFuelProgress(), 14, handler.getScaledFuelProgress());

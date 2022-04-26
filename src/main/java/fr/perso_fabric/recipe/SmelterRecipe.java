@@ -1,37 +1,59 @@
 package fr.perso_fabric.recipe;
 
-import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
 import net.minecraft.inventory.SimpleInventory;
 import net.minecraft.item.ItemStack;
-import net.minecraft.network.PacketByteBuf;
 import net.minecraft.recipe.*;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.JsonHelper;
-import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.world.World;
 
 public class SmelterRecipe implements Recipe<SimpleInventory> {
 
     private final Identifier id;
     private final ItemStack output;
-    private final DefaultedList<Ingredient> recipeItems;
+    private final Ingredient inputA;
+    private final Ingredient inputB;
+    private final int intputAmountA;
+    private final int intputAmountB;
 
-    public SmelterRecipe(Identifier id, ItemStack output, DefaultedList<Ingredient> recipeItems) {
+    public Ingredient getInputA(){
+        return this.inputA;
+    }
+    public Ingredient getInputB(){
+        return this.inputB;
+    }
+    public int getInputAmountA(){
+        return this.intputAmountA;
+    }
+    public int getInputAmountB(){
+        return this.intputAmountB;
+    }
+
+
+
+    public SmelterRecipe(Identifier id, ItemStack output, Ingredient inputA, Ingredient inputB, int intputAmountA, int intputAmountB) {
         this.id = id;
         this.output = output;
-        this.recipeItems = recipeItems;
+        this.inputA = inputA;
+        this.inputB = inputB;
+        this.intputAmountA = intputAmountA;
+
+        this.intputAmountB = intputAmountB;
     }
 
     @Override
     public boolean matches(SimpleInventory inventory, World world) {
         boolean canCraft=false;
-        if(recipeItems.get(0).test(inventory.getStack(0))||recipeItems.get(0).test(inventory.getStack(1))) {
-            if(recipeItems.get(1).test(inventory.getStack(0))||recipeItems.get(1).test(inventory.getStack(1))){
-                canCraft=true;
-            }
+        if(inputA.test(inventory.getStack(0))||inputA.test(inventory.getStack(1))){
+            if(inventory.getStack(0).getCount()>=intputAmountA||inventory.getStack(1).getCount()>=intputAmountA){
+                if(inputB.test(inventory.getStack(0))||inputB.test(inventory.getStack(1))){
+                    if(inventory.getStack(0).getCount()>=intputAmountB||inventory.getStack(1).getCount()>=intputAmountB){
+                        canCraft=true;
+                    }
+                }
 
+            }
         }
+
 
         return canCraft;
     }
@@ -58,7 +80,7 @@ public class SmelterRecipe implements Recipe<SimpleInventory> {
 
     @Override
     public RecipeSerializer<?> getSerializer() {
-        return Serializer.INSTANCE;
+        return SmelterRecipeSerializer.INSTANCE;
     }
 
     @Override
@@ -72,44 +94,5 @@ public class SmelterRecipe implements Recipe<SimpleInventory> {
         public static final String ID = "smelter";
     }
 
-    public static class Serializer implements RecipeSerializer<SmelterRecipe> {
-        public static final Serializer INSTANCE = new Serializer();
-        public static final String ID = "smelter";
-        // this is the name given in the json file
 
-        @Override
-        public SmelterRecipe read(Identifier id, JsonObject json) {
-            ItemStack output = ShapedRecipe.outputFromJson(JsonHelper.getObject(json, "output"));
-
-            JsonArray ingredients = JsonHelper.getArray(json, "ingredients");
-            DefaultedList<Ingredient> inputs = DefaultedList.ofSize(2, Ingredient.EMPTY);
-
-            for (int i = 0; i < inputs.size(); i++) {
-                inputs.set(i, Ingredient.fromJson(ingredients.get(i)));
-            }
-
-            return new SmelterRecipe(id, output, inputs);
-        }
-
-        @Override
-        public SmelterRecipe read(Identifier id, PacketByteBuf buf) {
-            DefaultedList<Ingredient> inputs = DefaultedList.ofSize(buf.readInt(), Ingredient.EMPTY);
-
-            for (int i = 0; i < inputs.size(); i++) {
-                inputs.set(i, Ingredient.fromPacket(buf));
-            }
-
-            ItemStack output = buf.readItemStack();
-            return new SmelterRecipe(id, output, inputs);
-        }
-
-        @Override
-        public void write(PacketByteBuf buf, SmelterRecipe recipe) {
-            buf.writeInt(recipe.getIngredients().size());
-            for (Ingredient ing : recipe.getIngredients()) {
-                ing.write(buf);
-            }
-            buf.writeItemStack(recipe.getOutput());
-        }
-    }
 }

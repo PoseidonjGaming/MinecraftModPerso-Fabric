@@ -15,6 +15,7 @@ import net.minecraft.inventory.Inventories;
 import net.minecraft.inventory.SimpleInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.recipe.Ingredient;
 import net.minecraft.screen.NamedScreenHandlerFactory;
 import net.minecraft.screen.PropertyDelegate;
 import net.minecraft.screen.ScreenHandler;
@@ -147,29 +148,41 @@ public class SmelterEntity extends BlockEntity implements NamedScreenHandlerFact
             inventory.setStack(i, entity.getStack(i));
         }
 
-        Optional<SmelterRecipe> match = world.getRecipeManager()
-                .getFirstMatch(SmelterRecipe.Type.INSTANCE, inventory, world);
+        Optional<SmelterRecipe> match = world.getRecipeManager().getFirstMatch(SmelterRecipe.Type.INSTANCE, inventory, world);
 
-        return match.isPresent() && canInsertAmountIntoOutputSlot(inventory)
-                && canInsertItemIntoOutputSlot(inventory, match.get().getOutput());
+        return match.isPresent() && canInsertAmountIntoOutputSlot(inventory) && canInsertItemIntoOutputSlot(inventory, match.get().getOutput());
     }
 
     private static void craftItem(SmelterEntity entity) {
         World world = entity.world;
         SimpleInventory inventory = new SimpleInventory(entity.inventory.size());
+
         for (int i = 0; i < entity.inventory.size(); i++) {
             inventory.setStack(i, entity.getStack(i));
         }
 
-        Optional<SmelterRecipe> match = world.getRecipeManager()
-                .getFirstMatch(SmelterRecipe.Type.INSTANCE, inventory, world);
+        Optional<SmelterRecipe> match = world.getRecipeManager().getFirstMatch(SmelterRecipe.Type.INSTANCE, inventory, world);
+        Ingredient inputA=match.get().getInputA();
+        Ingredient inputB=match.get().getInputB();
 
         if(match.isPresent()) {
-            entity.removeStack(0,1);
-            entity.removeStack(1,1);
 
-            entity.setStack(2, new ItemStack(match.get().getOutput().getItem(),
-                    entity.getStack(2).getCount() + 1));
+            if(inputA.test(entity.getStack(0))){
+                entity.removeStack(0,match.get().getInputAmountA());
+            } else if (inputB.test(entity.getStack(0))) {
+                entity.removeStack(0,match.get().getInputAmountB());
+            }
+            if(inputA.test(entity.getStack(1))){
+                entity.removeStack(1,match.get().getInputAmountA());
+            } else if (inputB.test(entity.getStack(1))) {
+                entity.removeStack(1,match.get().getInputAmountB());
+            }
+            /*entity.removeStack(0,1);
+            entity.removeStack(1,1);*/
+
+
+
+            entity.setStack(2, new ItemStack(match.get().getOutput().getItem(),entity.getStack(2).getCount() + 1));
 
             entity.resetProgress();
         }
