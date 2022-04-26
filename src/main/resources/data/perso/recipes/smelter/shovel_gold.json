@@ -1,0 +1,14 @@
+{
+ "type": "perso:smelter",
+  "inputA":
+    {
+      "item": "minecraft:iron_shovel"
+    },
+  "inputB":
+    {
+      "item": "minecraft:gold_ingot"
+    },
+  "inputAmountA":1,
+  "inputAmountB":1,
+  "output": "minecraft:golden_shovel"
+}

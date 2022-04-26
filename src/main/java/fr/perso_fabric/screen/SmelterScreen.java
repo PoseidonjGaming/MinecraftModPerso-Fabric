@@ -10,7 +10,7 @@ import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
 public class SmelterScreen extends HandledScreen<SmelterScreenHandler> {
-    private static final Identifier texture=new Identifier(Perso.ModId,"textures/gui/smelter_gui_2.png");
+    private static final Identifier texture=new Identifier(Perso.ModId,"textures/gui/smelter_gui.png");
     @Override
     protected void init() {
         super.init();

@@ -1,0 +1,14 @@
+{
+ "type": "perso:smelter",
+  "inputA":
+    {
+      "item": "minecraft:chainmail_boots"
+    },
+  "inputB":
+    {
+      "item": "perso:vibranium_ingot"
+    },
+  "inputAmountA":1,
+  "inputAmountB":4,
+  "output": "minecraft:iron_boots"
+}

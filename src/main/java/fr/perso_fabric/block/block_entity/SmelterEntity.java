@@ -14,6 +14,7 @@ import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventories;
 import net.minecraft.inventory.SimpleInventory;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.screen.NamedScreenHandlerFactory;
@@ -32,7 +33,7 @@ public class SmelterEntity extends BlockEntity implements NamedScreenHandlerFact
 
     protected final PropertyDelegate propertyDelegate;
     private int progress=0;
-    private int maxProgress=72;
+    private int maxProgress=250;
     private int fuelTime=0;
     private int maxFuelTime=0;
     private final DefaultedList<ItemStack> inventory= DefaultedList.ofSize(4,ItemStack.EMPTY);
@@ -164,25 +165,28 @@ public class SmelterEntity extends BlockEntity implements NamedScreenHandlerFact
         Optional<SmelterRecipe> match = world.getRecipeManager().getFirstMatch(SmelterRecipe.Type.INSTANCE, inventory, world);
         Ingredient inputA=match.get().getInputA();
         Ingredient inputB=match.get().getInputB();
+        NbtCompound nbtCompound = null;
 
         if(match.isPresent()) {
 
             if(inputA.test(entity.getStack(0))){
                 entity.removeStack(0,match.get().getInputAmountA());
+                nbtCompound=entity.getStack(0).getNbt();
             } else if (inputB.test(entity.getStack(0))) {
                 entity.removeStack(0,match.get().getInputAmountB());
             }
             if(inputA.test(entity.getStack(1))){
                 entity.removeStack(1,match.get().getInputAmountA());
+                nbtCompound=entity.getStack(1).getNbt();
             } else if (inputB.test(entity.getStack(1))) {
                 entity.removeStack(1,match.get().getInputAmountB());
             }
-            /*entity.removeStack(0,1);
-            entity.removeStack(1,1);*/
 
 
 
-            entity.setStack(2, new ItemStack(match.get().getOutput().getItem(),entity.getStack(2).getCount() + 1));
+            ItemStack output=new ItemStack(match.get().getOutput().getItem(),entity.getStack(2).getCount() + 1);
+            output.setNbt(nbtCompound);
+            entity.setStack(2,output);
 
             entity.resetProgress();
         }

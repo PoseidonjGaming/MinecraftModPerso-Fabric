@@ -1,0 +1,14 @@
+{
+ "type": "perso:smelter",
+  "inputA":
+    {
+      "item": "minecraft:diamond_shovel"
+    },
+  "inputB":
+    {
+      "item": "perso:vibranium_ingot"
+    },
+  "inputAmountA":1,
+  "inputAmountB":1,
+  "output": "perso:vibranium_shovel"
+}

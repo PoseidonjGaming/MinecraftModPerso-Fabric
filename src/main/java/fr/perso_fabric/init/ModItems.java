@@ -63,6 +63,9 @@ public class ModItems {
         {
             add( Arrays.asList("vibranium_dust",new Item(new Item.Settings().group(groupe))));
         }
+        {
+            add( Arrays.asList("iron_string",new Item(new Item.Settings().group(groupe))));
+        }
 
 
 

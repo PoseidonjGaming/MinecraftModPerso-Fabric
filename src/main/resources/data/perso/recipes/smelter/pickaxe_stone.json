@@ -1,0 +1,14 @@
+{
+ "type": "perso:smelter",
+  "inputA":
+    {
+      "item": "minecraft:wooden_pickaxe"
+    },
+  "inputB":
+    {
+      "item": "minecraft:cobblestone"
+    },
+  "inputAmountA":1,
+  "inputAmountB":3,
+  "output": "minecraft:stone_pickaxe"
+}

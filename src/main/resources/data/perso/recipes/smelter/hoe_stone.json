@@ -1,0 +1,14 @@
+{
+ "type": "perso:smelter",
+  "inputA":
+    {
+      "item": "minecraft:wooden_hoe"
+    },
+  "inputB":
+    {
+      "item": "minecraft:cobblestone"
+    },
+  "inputAmountA":1,
+  "inputAmountB":2,
+  "output": "minecraft:stone_hoe"
+}

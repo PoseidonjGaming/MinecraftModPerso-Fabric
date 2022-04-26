@@ -1,6 +1,7 @@
 {
 	"replace":false,
 	"values":[
-		"perso:vibranium_ore"
+		"perso:vibranium_ore",
+		"perso:smelter"
 	]
 }

@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " m ",
+    "mfm",
+    " m "
+  ],
+  "key": {
+    "m": {
+      "item": "minecraft:iron_ingot"
+    },
+    "f": {
+      "item": "minecraft:string"
+    }
+  },
+  "result": {
+    "item": "perso:iron_string",
+    "count":4
+  }
+}

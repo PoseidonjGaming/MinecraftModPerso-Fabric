@@ -3,6 +3,8 @@
     "values":[
         "perso:vibranium_block",
         "perso:vibranium_ore",
-        "perso:vibranium_gravel"
+        "perso:vibranium_gravel",
+        "perso:vibranium_chest",
+        "perso:smelter"
     ]
 }

@@ -49,6 +49,7 @@ public class SmelterRecipe implements Recipe<SimpleInventory> {
                     if(inventory.getStack(0).getCount()>=intputAmountB||inventory.getStack(1).getCount()>=intputAmountB){
                         canCraft=true;
                     }
+
                 }
 
             }

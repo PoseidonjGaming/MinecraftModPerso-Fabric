@@ -1,0 +1,14 @@
+{
+ "type": "perso:smelter",
+  "inputA":
+    {
+      "item": "minecraft:iron_boots"
+    },
+  "inputB":
+    {
+      "item": "minecraft:iron_ingot"
+    },
+  "inputAmountA":1,
+  "inputAmountB":4,
+  "output": "minecraft:iron_boots"
+}

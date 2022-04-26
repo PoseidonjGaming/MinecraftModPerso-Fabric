@@ -11,7 +11,7 @@ import java.util.function.Supplier;
 
 public enum ModToolMaterial implements ToolMaterial {
 
-    Vibranium(5, 4060, 20F, 4.0F, 20, () -> {
+    Vibranium(5, 4060, 20F, 5.0F, 20, () -> {
         return Ingredient.ofItems(new ItemConvertible[]{(Item) ModItems.itemList.get(0).get(1)});
     });
 

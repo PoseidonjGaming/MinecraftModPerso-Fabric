@@ -1,0 +1,14 @@
+{
+ "type": "perso:smelter",
+  "inputA":
+    {
+      "item": "minecraft:diamond_pickaxe"
+    },
+  "inputB":
+    {
+      "item": "perso:vibranium_ingot"
+    },
+  "inputAmountA":1,
+  "inputAmountB":3,
+  "output": "perso:vibranium_pickaxe"
+}

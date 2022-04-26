@@ -1,0 +1,14 @@
+{
+ "type": "perso:smelter",
+  "inputA":
+    {
+      "item": "minecraft:leather_leggings"
+    },
+  "inputB":
+    {
+      "item": "perso:iron_string"
+    },
+  "inputAmountA":1,
+  "inputAmountB":7,
+  "output": "minecraft:chainmail_leggings"
+}
