@@ -1,7 +1,6 @@
 package fr.perso_fabric.init;
 
 import fr.perso_fabric.Perso;
-import fr.perso_fabric.lib.object.FabricShieldItem;
 import fr.perso_fabric.utils.*;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.block.Block;
@@ -73,14 +72,14 @@ public class ModItems {
 
     };
 
-    public static final Item vibranium_shield=new FabricShieldItem((Item.Settings) new FabricItemSettings().group(Perso.persoGroup),10,13,(Item)itemList.get(0).get(1));
+    //public static final Item vibranium_shield=new FabricShieldItem((Item.Settings) new FabricItemSettings().group(Perso.persoGroup),10,13,(Item)itemList.get(0).get(1));
 
 
     public static void registerAll(){
         for(int i=0; i<itemList.size();i++){
             registerItem(itemList.get(i).get(0).toString(),(Item)itemList.get(i).get(1));
         }
-        registerItem("vibranium_shield",vibranium_shield);
+        //registerItem("vibranium_shield",vibranium_shield);
     }
 
     public static void registerItem(String name,Item item){
