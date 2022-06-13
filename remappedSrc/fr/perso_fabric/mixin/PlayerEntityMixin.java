@@ -1,7 +1,14 @@
 package fr.perso_fabric.mixin;
 
-import fr.perso_fabric.lib.event.ShieldDisabledCallback;
-import fr.perso_fabric.lib.object.FabricShield;
+import com.github.crimsondawn45.fabricshieldlib.lib.event.ShieldDisabledCallback;
+import com.github.crimsondawn45.fabricshieldlib.lib.object.FabricShield;
+
+import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
+
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
@@ -11,11 +18,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.MathHelper;
-import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 
 /**
  * Mixin that allows custom shields to be damaged, and to be disabled with axes.

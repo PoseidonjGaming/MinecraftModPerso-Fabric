@@ -1,5 +1,8 @@
 package fr.perso_fabric.lib.object;
 
+import java.util.Collection;
+import java.util.List;
+
 import net.fabricmc.api.EnvType;
 import net.fabricmc.fabric.api.object.builder.v1.client.model.FabricModelPredicateProviderRegistry;
 import net.fabricmc.loader.api.FabricLoader;
@@ -18,9 +21,6 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.UseAction;
 import net.minecraft.world.World;
-
-import java.util.Collection;
-import java.util.List;
 
 /**
  * Pre-made class for quickly making custom shields

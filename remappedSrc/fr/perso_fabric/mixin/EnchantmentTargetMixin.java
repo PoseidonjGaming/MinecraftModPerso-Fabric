@@ -1,9 +1,10 @@
 package fr.perso_fabric.mixin;
 
-import net.minecraft.enchantment.EnchantmentTarget;
-import net.minecraft.item.Item;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
+
+import net.minecraft.enchantment.EnchantmentTarget;
+import net.minecraft.item.Item;
 
 @Mixin(EnchantmentTarget.class)
 public abstract class EnchantmentTargetMixin {

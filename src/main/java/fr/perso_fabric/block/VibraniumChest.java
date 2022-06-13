@@ -14,6 +14,8 @@ import net.minecraft.state.property.Properties;
 import net.minecraft.util.*;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.shape.VoxelShape;
+import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
@@ -21,6 +23,28 @@ import org.jetbrains.annotations.Nullable;
 
 public class VibraniumChest extends BlockWithEntity implements BlockEntityProvider {
     public static final DirectionProperty facing= Properties.HORIZONTAL_FACING;
+    private static final VoxelShape shaped_N=Block.createCuboidShape(1.0, 0.0, 1.0, 15.0, 14.0, 15.0);;
+    private static final VoxelShape shaped_W=Block.createCuboidShape(1.0, 0.0, 1.0, 15.0, 14.0, 15.0);
+    private static final VoxelShape shaped_S=Block.createCuboidShape(1.0, 0.0, 1.0, 15.0, 14.0, 15.0);
+    private static final VoxelShape shaped_E=Block.createCuboidShape(1.0, 0.0, 1.0, 15.0, 14.0, 15.0);
+
+
+    public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
+
+        switch (state.get(facing)) {
+            case NORTH:
+            default:
+                return shaped_N;
+            case SOUTH:
+                return shaped_S;
+            case WEST:
+                return shaped_W;
+            case EAST:
+                return shaped_E;
+        }
+
+    }
+
 
     @Nullable
     @Override

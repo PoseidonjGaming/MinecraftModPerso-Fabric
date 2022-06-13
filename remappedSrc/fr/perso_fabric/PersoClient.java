@@ -1,8 +1,8 @@
 package fr.perso_fabric;
 
 import fr.perso_fabric.init.ModScreen;
+import fr.perso_fabric.screen.SmelterScreen;
 import fr.perso_fabric.screen.VibraniumChestScreen;
-import fr.perso_fabric.screen.VibraniumScreenHandler;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
@@ -13,5 +13,6 @@ public class PersoClient implements ClientModInitializer {
     @Override
     public void onInitializeClient(){
         ScreenRegistry.register(ModScreen.vibranium_chest_screen_handler, VibraniumChestScreen::new);
+        ScreenRegistry.register(ModScreen.smelter_screen_handler, SmelterScreen::new);
     }
 }

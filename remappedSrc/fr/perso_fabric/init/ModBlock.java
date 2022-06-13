@@ -1,6 +1,7 @@
 package fr.perso_fabric.init;
 
 import fr.perso_fabric.Perso;
+import fr.perso_fabric.block.Smelter;
 import fr.perso_fabric.block.VibraniumChest;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.*;
@@ -27,11 +28,14 @@ public class ModBlock {
         {
             add(Arrays.asList("vibranium_chest",new VibraniumChest(FabricBlockSettings.of(Material.WOOD).strength(6f))));
         }
+        {
+            add(Arrays.asList("smelter",new Smelter(FabricBlockSettings.of(Material.METAL).strength(6f))));
+        }
 
 
     };
 
-    //public static final Block vibranium_chest=new Block(FabricBlockSettings.of(Material.WOOD).strength(6f));
+
 
 
     public static void registerAll(){

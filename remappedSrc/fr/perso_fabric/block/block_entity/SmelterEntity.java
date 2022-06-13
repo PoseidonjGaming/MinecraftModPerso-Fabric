@@ -73,7 +73,7 @@ public class SmelterEntity extends BlockEntity implements NamedScreenHandlerFact
 
     @Override
     public Text getDisplayName() {
-        return Text.of("Smelter");
+        return Text.literal("Smelter");
     }
 
     @Nullable

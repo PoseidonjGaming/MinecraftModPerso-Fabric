@@ -8,4 +8,6 @@ public class ModCustomSword extends SwordItem {
     public ModCustomSword(ToolMaterial toolMaterial, int attackDamage, float attackSpeed, Settings settings) {
         super(toolMaterial, attackDamage, attackSpeed, settings);
     }
+
+
 }

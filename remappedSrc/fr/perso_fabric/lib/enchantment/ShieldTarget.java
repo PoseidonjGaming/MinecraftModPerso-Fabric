@@ -1,7 +1,8 @@
 package fr.perso_fabric.lib.enchantment;
 
-import fr.perso_fabric.lib.object.FabricShield;
-import fr.perso_fabric.mixin.EnchantmentTargetMixin;
+import com.github.crimsondawn45.fabricshieldlib.lib.object.FabricShield;
+import com.github.crimsondawn45.fabricshieldlib.mixin.EnchantmentTargetMixin;
+
 import net.minecraft.item.Item;
 import net.minecraft.item.Items;
 

@@ -34,7 +34,7 @@ public class VibraniumChestBlockEntity extends BlockEntity implements Implemente
 
     @Override
     public Text getDisplayName() {
-        return Text.of("Test Chest");
+        return Text.literal("Test Chest");
     }
 
     @Nullable

@@ -1,29 +1,57 @@
 package fr.perso_fabric.block;
 
 import fr.perso_fabric.block.block_entity.VibraniumChestBlockEntity;
-import fr.perso_fabric.init.ModBlockEntity;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.block.entity.BlockEntityTicker;
-import net.minecraft.block.entity.BlockEntityType;
-import net.minecraft.client.MinecraftClient;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.Inventory;
-import net.minecraft.item.ItemStack;
+import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.screen.NamedScreenHandlerFactory;
 import net.minecraft.screen.ScreenHandler;
-import net.minecraft.util.ActionResult;
-import net.minecraft.util.Hand;
-import net.minecraft.util.ItemScatterer;
+import net.minecraft.state.StateManager;
+import net.minecraft.state.property.DirectionProperty;
+import net.minecraft.state.property.Properties;
+import net.minecraft.util.*;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.shape.VoxelShape;
+import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
-import net.minecraft.world.event.listener.GameEventListener;
 import org.jetbrains.annotations.Nullable;
 
 
 
 public class VibraniumChest extends BlockWithEntity implements BlockEntityProvider {
+    public static final DirectionProperty facing= Properties.HORIZONTAL_FACING;
+    private static final VoxelShape shaped_N=Block.createCuboidShape(1.0, 0.0, 1.0, 15.0, 14.0, 15.0);;
+    private static final VoxelShape shaped_W=Block.createCuboidShape(1.0, 0.0, 1.0, 15.0, 14.0, 15.0);
+    private static final VoxelShape shaped_S=Block.createCuboidShape(1.0, 0.0, 1.0, 15.0, 14.0, 15.0);
+    private static final VoxelShape shaped_E=Block.createCuboidShape(1.0, 0.0, 1.0, 15.0, 14.0, 15.0);
+
+
+    public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
+
+        switch (state.get(facing)) {
+            case NORTH:
+            default:
+                return shaped_N;
+            case SOUTH:
+                return shaped_S;
+            case WEST:
+                return shaped_W;
+            case EAST:
+                return shaped_E;
+        }
+
+    }
+
+
+    @Nullable
+    @Override
+    public BlockState getPlacementState(ItemPlacementContext ctx) {
+        return this.getDefaultState().with(facing,ctx.getPlayerFacing().getOpposite());
+    }
+
     public VibraniumChest(Settings settings) {
         super(settings);
     }
@@ -39,27 +67,31 @@ public class VibraniumChest extends BlockWithEntity implements BlockEntityProvid
         return new VibraniumChestBlockEntity(pos, state);
     }
 
+    @Override
+    public BlockState mirror(BlockState state, BlockMirror mirror) {
+        return state.rotate(mirror.getRotation(state.get(facing)));
+    }
 
+    @Override
+    public BlockState rotate(BlockState state, BlockRotation rotation) {
+        return state.with(facing,rotation.rotate(state.get(facing)));
+    }
 
-
+    @Override
+    protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
+        builder.add(facing);
+    }
 
     @Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
-        /*Inventory blockEntity = (Inventory) world.getBlockEntity(pos);
-        if(blockEntity.getStack(0).isEmpty()){
-            blockEntity.setStack(0, player.getStackInHand(hand).copy());
-            player.getStackInHand(hand).setCount(0);
-        }
-        else {
-            player.getInventory().offerOrDrop(blockEntity.getStack(0));
-            blockEntity.setStack(0, ItemStack.EMPTY);
-        }*/
-        NamedScreenHandlerFactory screenHandlerFactory=state.createScreenHandlerFactory(world,pos);
-        if (screenHandlerFactory!=null){
-            player.openHandledScreen(screenHandlerFactory);
-            //MinecraftClient.getInstance().player.sendChatMessage("dsqd");
-        }
 
+        if(!world.isClient()){
+            NamedScreenHandlerFactory screenHandlerFactory=state.createScreenHandlerFactory(world,pos);
+            if (screenHandlerFactory!=null){
+                player.openHandledScreen(screenHandlerFactory);
+
+            }
+        }
 
 
         return ActionResult.SUCCESS;

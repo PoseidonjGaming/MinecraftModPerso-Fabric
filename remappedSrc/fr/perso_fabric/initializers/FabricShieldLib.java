@@ -1,12 +1,16 @@
 package fr.perso_fabric.initializers;
 
-import fr.perso_fabric.lib.config.FabricShieldLibConfig;
-import fr.perso_fabric.lib.event.ShieldBlockCallback;
-import fr.perso_fabric.lib.event.ShieldDisabledCallback;
-import fr.perso_fabric.lib.object.FabricBannerShieldItem;
-import fr.perso_fabric.lib.object.FabricShieldDecoratorRecipe;
-import fr.perso_fabric.lib.object.FabricShieldEnchantment;
-import fr.perso_fabric.lib.object.FabricShieldItem;
+import com.github.crimsondawn45.fabricshieldlib.lib.config.FabricShieldLibConfig;
+import com.github.crimsondawn45.fabricshieldlib.lib.event.ShieldBlockCallback;
+import com.github.crimsondawn45.fabricshieldlib.lib.event.ShieldDisabledCallback;
+import com.github.crimsondawn45.fabricshieldlib.lib.object.FabricBannerShieldItem;
+import com.github.crimsondawn45.fabricshieldlib.lib.object.FabricShieldDecoratorRecipe;
+import com.github.crimsondawn45.fabricshieldlib.lib.object.FabricShieldEnchantment;
+import com.github.crimsondawn45.fabricshieldlib.lib.object.FabricShieldItem;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import me.shedaniel.autoconfig.AutoConfig;
 import me.shedaniel.autoconfig.serializer.GsonConfigSerializer;
 import net.fabricmc.api.ModInitializer;
@@ -25,8 +29,6 @@ import net.minecraft.recipe.SpecialRecipeSerializer;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 /**
  * Main class for Fabric Shield Lib

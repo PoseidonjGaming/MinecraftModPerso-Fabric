@@ -1,6 +1,7 @@
 package fr.perso_fabric.lib.object;
 
 import fr.perso_fabric.lib.enchantment.FabricShieldLibTarget;
+
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.EquipmentSlot;

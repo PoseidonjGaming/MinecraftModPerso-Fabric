@@ -1,16 +1,18 @@
 package fr.perso_fabric.mixin;
 
-import fr.perso_fabric.lib.event.ShieldBlockCallback;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.damage.DamageSource;
-import net.minecraft.entity.effect.StatusEffects;
-import net.minecraft.item.ItemStack;
+import com.github.crimsondawn45.fabricshieldlib.lib.event.ShieldBlockCallback;
+
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
+
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.damage.DamageSource;
+import net.minecraft.entity.effect.StatusEffects;
+import net.minecraft.item.ItemStack;
 
 /**
  * Mixin that allows custom shields to block damage.

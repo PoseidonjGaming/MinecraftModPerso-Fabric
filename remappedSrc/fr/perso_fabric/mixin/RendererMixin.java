@@ -1,8 +1,16 @@
 package fr.perso_fabric.mixin;
 
 
-import fr.perso_fabric.initializers.FabricShieldLib;
-import fr.perso_fabric.initializers.FabricShieldLibClient;
+import com.github.crimsondawn45.fabricshieldlib.initializers.FabricShieldLib;
+import com.github.crimsondawn45.fabricshieldlib.initializers.FabricShieldLibClient;
+
+import org.spongepowered.asm.mixin.Final;
+import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Shadow;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.entity.model.EntityModelLoader;
@@ -14,12 +22,6 @@ import net.minecraft.client.util.SpriteIdentifier;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
-import org.spongepowered.asm.mixin.Final;
-import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Shadow;
-import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 /**
  * Handles rendering of shields with banners.

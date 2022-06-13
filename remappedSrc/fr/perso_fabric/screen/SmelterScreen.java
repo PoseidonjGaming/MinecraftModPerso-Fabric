@@ -9,24 +9,15 @@ import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
-public class VibraniumChestScreen extends HandledScreen<VibraniumChestScreenHandler> {
-
-    private static final Identifier texture= new Identifier(Perso.ModId,"textures/gui/vibranium_chest_gui.png");
-
+public class SmelterScreen extends HandledScreen<SmelterScreenHandler> {
+    private static final Identifier texture=new Identifier(Perso.ModId,"textures/gui/smelter_gui.png");
     @Override
     protected void init() {
         super.init();
-        this.x = (width - 237) / 2;
-        this.y = 0;
-        this.playerInventoryTitleY=163;
-        this.playerInventoryTitleX=35;
-        this.backgroundHeight=256;
-        this.backgroundWidth=237;
-
 
     }
 
-    public VibraniumChestScreen(VibraniumChestScreenHandler handler, PlayerInventory inventory, Text title) {
+    public SmelterScreen(SmelterScreenHandler handler, PlayerInventory inventory, Text title) {
         super(handler, inventory, title);
     }
 
@@ -42,8 +33,16 @@ public class VibraniumChestScreen extends HandledScreen<VibraniumChestScreenHand
         RenderSystem.setShader(GameRenderer::getPositionTexShader);
         RenderSystem.setShaderColor(1.0F,1.0F,1.0F,1.0F);
         RenderSystem.setShaderTexture(0,texture);
-        int xMod=(width-237)/2;
+        int x=(width-176)/2;
+        int y=(height-168)/2;
+        drawTexture(matrices,x,y,0,0,176,168);
+        if(handler.isCrafting()) {
+            drawTexture(matrices, x + 77, y + 26, 176, 14, 36, handler.getScaledProgress());
+        }
+        //drawTexture(matrices, x + 99, y + 26, 176, 14, 22, 34);
 
-        drawTexture(matrices,xMod,0,0,0,236,256);
+        if(handler.hasFuel()) {
+            drawTexture(matrices, x + 55, (y + 28) + (14 - handler.getScaledFuelProgress()), 176,14 - handler.getScaledFuelProgress(), 14, handler.getScaledFuelProgress());
+        }
     }
 }

@@ -69,6 +69,8 @@ public class ModItems {
 
 
 
+
+
     };
 
     public static final Item vibranium_shield=new FabricShieldItem((Item.Settings) new FabricItemSettings().group(Perso.persoGroup),10,13,(Item)itemList.get(0).get(1));
